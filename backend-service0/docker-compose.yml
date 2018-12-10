@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    volumes:
+      - .:/code
+      - ./:/backend-service
+    # command: sleep infinity
+    command: python3 productsapis/manage.py runserver 0.0.0.0:5500
+    ports:
+      - "5500:5500"
